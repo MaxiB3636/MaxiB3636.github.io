@@ -99,37 +99,66 @@
 
     <input type="text" id="inputBuscar" class="buscador" placeholder="Buscar golosina..." onkeyup="filtrarProductos()">
 
-    <h2 class="categoria-titulo">Chocolates</h2>
-    <div class="grid-productos">
-        <div class="producto-card">
-            <div class="producto-nombre">Alfajor Marplatense</div>
-            <div class="producto-precio">$1.200</div>
+    <!-- SECCIÓN CHOCOLATES -->
+    <section class="categoria-seccion">
+        <h2 class="categoria-titulo">Chocolates</h2>
+        <div class="grid-productos">
+            <div class="producto-card">
+                <div class="producto-nombre">Alfajor Marplatense</div>
+                <div class="producto-precio">$1.200</div>
+            </div>
+            <div class="producto-card">
+                <div class="producto-nombre">Chocolate con Almendras</div>
+                <div class="producto-precio">$1.800</div>
+            </div>
+            <div class="producto-card">
+                <div class="producto-nombre">Barrita de Frutilla</div>
+                <div class="producto-precio">$800</div>
+            </div>
         </div>
-        <div class="producto-card">
-            <div class="producto-nombre">Chocolate con Almendras</div>
-            <div class="producto-precio">$1.800</div>
-        </div>
-        <div class="producto-card">
-            <div class="producto-nombre">Barrita de Frutilla</div>
-            <div class="producto-precio">$800</div>
-        </div>
-    </div>
+    </section>
 
-    <h2 class="categoria-titulo">Gomitas y Caramelos</h2>
-    <div class="grid-productos">
-        <div class="producto-card">
-            <div class="producto-nombre">Gomitas Ácidas Mix</div>
-            <div class="producto-precio">$950</div>
+    <!-- SECCIÓN GOMITAS Y CARAMELOS -->
+    <section class="categoria-seccion">
+        <h2 class="categoria-titulo">Gomitas y Caramelos</h2>
+        <div class="grid-productos">
+            <div class="producto-card">
+                <div class="producto-nombre">Gomitas Ácidas Mix</div>
+                <div class="producto-precio">$950</div>
+            </div>
+            <div class="producto-card">
+                <div class="producto-nombre">Caramelos de Miel (100g)</div>
+                <div class="producto-precio">$700</div>
+            </div>
+            <div class="producto-card">
+                <div class="producto-nombre">Chupetín Frutal</div>
+                <div class="producto-precio">$350</div>
+            </div>
         </div>
-        <div class="producto-card">
-            <div class="producto-nombre">Caramelos de Miel (100g)</div>
-            <div class="producto-precio">$700</div>
+    </section>
+
+    <!-- SECCIÓN BUDINES -->
+    <section class="categoria-seccion">
+        <h2 class="categoria-titulo">Budines</h2>
+        <div class="grid-productos">
+            <div class="producto-card">
+                <div class="producto-nombre">Budín de Banana</div>
+                <div class="producto-precio">$1.500</div>
+            </div>
+            <div class="producto-card">
+                <div class="producto-nombre">Budín de Chispitas</div>
+                <div class="producto-precio">$1.600</div>
+            </div>
+            <div class="producto-card">
+                <div class="producto-nombre">Budín de Chocolate</div>
+                <div class="producto-precio">$1.650</div>
+            </div>
+            <div class="producto-card">
+                <div class="producto-nombre">Budín de Limón</div>
+                <div class="producto-precio">$1.400</div>
+            </div>
         </div>
-        <div class="producto-card">
-            <div class="producto-nombre">Chupetín Frutal</div>
-            <div class="producto-precio">$350</div>
-        </div>
-    </div>
+    </section>
 
     <footer>
         <p>© 2026 - MaxiB3636 Golosinas</p>
@@ -138,14 +167,27 @@
     <script>
         function filtrarProductos() {
             let input = document.getElementById('inputBuscar').value.toLowerCase();
-            let cards = document.getElementsByClassName('producto-card');
+            let secciones = document.getElementsByClassName('categoria-seccion');
             
-            for (let i = 0; i < cards.length; i++) {
-                let nombre = cards[i].getElementsByClassName('producto-nombre')[0].innerText.toLowerCase();
-                if (nombre.includes(input)) {
-                    cards[i].style.display = "";
+            for (let i = 0; i < secciones.length; i++) {
+                let cards = secciones[i].getElementsByClassName('producto-card');
+                let tieneProductosVisibles = false;
+                
+                for (let j = 0; j < cards.length; j++) {
+                    let nombre = cards[j].getElementsByClassName('producto-nombre')[0].innerText.toLowerCase();
+                    
+                    if (nombre.includes(input)) {
+                        cards[j].style.display = "";
+                        tieneProductosVisibles = true;
+                    } else {
+                        cards[j].style.display = "none";
+                    }
+                }
+                
+                if (tieneProductosVisibles) {
+                    sections = secciones[i].style.display = "";
                 } else {
-                    cards[i].style.display = "none";
+                    secciones[i].style.display = "none";
                 }
             }
         }
