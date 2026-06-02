@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiosco Digital - Golosinas con Fotos</title>
-    <!-- Cargamos la librería oficial de Supabase -->
+    <!-- Cargamos la librería oficial de Supabase una sola vez -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         * {
@@ -102,7 +102,6 @@
             color: #2b6cb0;
             margin-top: auto;
         }
-        /* Estilo para el stock que agregamos */
         .producto-stock {
             font-size: 12px;
             color: #718096;
@@ -134,7 +133,6 @@
     <section class="categoria-seccion">
         <h2 class="categoria-titulo">Chocolates</h2>
         <div class="grid-productos">
-            <!-- Agregamos un id único a cada tarjeta para enlazarlo con Supabase -->
             <div class="producto-card" id="prod-alfajor-fulbito">
                 <img src="imagenes/fulbito.webp" alt="Alfajor Fulbito" class="producto-imagen">
                 <div class="producto-nombre">Alfajor Fulbito</div>
@@ -223,30 +221,30 @@
         </div>
     </section>
 
-    <!-- SECCIÓN BUDINES -->
+    <!-- SECCIÓN BUDINES (Solucionado con Emojis temporales para evitar errores 404) -->
     <section class="categoria-seccion">
         <h2 class="categoria-titulo">Budines</h2>
         <div class="grid-productos">
             <div class="producto-card" id="prod-budin-banana">
-                <img src="placeholder_budin_banana.png" alt="Budín de Banana" class="producto-imagen">
+                <div class="producto-imagen" style="display: flex; align-items: center; justify-content: center; font-size: 40px;">🍰</div>
                 <div class="producto-nombre">Budín de Banana</div>
                 <div class="producto-precio">$3500</div>
                 <div class="producto-stock">Cargando...</div>
             </div>
             <div class="producto-card" id="prod-budin-chispitas">
-                <img src="placeholder_budin_chispitas.png" alt="Budín de Chispitas" class="producto-imagen">
+                <div class="producto-imagen" style="display: flex; align-items: center; justify-content: center; font-size: 40px;">🍰</div>
                 <div class="producto-nombre">Budín de Chispitas</div>
                 <div class="producto-precio">$3500</div>
                 <div class="producto-stock">Cargando...</div>
             </div>
             <div class="producto-card" id="prod-budin-chocolate">
-                <img src="placeholder_budin_chocolate.png" alt="Budín de Chocolate" class="producto-imagen">
+                <div class="producto-imagen" style="display: flex; align-items: center; justify-content: center; font-size: 40px;">🍰</div>
                 <div class="producto-nombre">Budín de Chocolate</div>
                 <div class="producto-precio">$3500</div>
                 <div class="producto-stock">Cargando...</div>
             </div>
             <div class="producto-card" id="prod-budin-limon">
-                <img src="placeholder_budin_limon.png" alt="Budín de Limón" class="producto-imagen">
+                <div class="producto-imagen" style="display: flex; align-items: center; justify-content: center; font-size: 40px;">🍰</div>
                 <div class="producto-nombre">Budín de Limón</div>
                 <div class="producto-precio">$3500</div>
                 <div class="producto-stock">Cargando...</div>
@@ -259,13 +257,13 @@
     </footer>
 
     <script>
-        // CONFIGURACIÓN DE SUPABASE
+        // CONFIGURACIÓN ÚNICA DE SUPABASE
         const SUPABASE_URL = "https://smxhaczyyqgbaqqlcujf.supabase.co";
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNteGhhY3p5eXFnYmFxcWxjdWpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTAyMjYsImV4cCI6MjA5NTkyNjIyNn0.UO8-8JGZ5Tas18GcDZo9o1JJFa61VOuDdmNnYL0c36w";
 
         const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Diccionario para vincular los nombres exactos de tu base de datos con los IDs del HTML
+        // Diccionario de vinculación Nombre de Base de Datos -> ID del HTML
         const mapaIdProductos = {
             "Alfajor Fulbito": "prod-alfajor-fulbito",
             "Turrón Fulbito": "prod-turron-fulbito",
@@ -319,7 +317,7 @@
             });
         }
 
-        // BUSCADOR ORIGINAL ORIGINAL
+        // BUSCADOR ORIGINAL
         function filtrarProductos() {
             let input = document.getElementById('inputBuscar').value.toLowerCase();
             let secciones = document.getElementsByClassName('categoria-seccion');
@@ -347,7 +345,7 @@
             }
         }
 
-        // ESCUCHAR EN TIEMPO REAL
+        // ESCUCHAR EN TIEMPO REAL CAMBIOS EN LA BASE DE DATOS
         supabase
             .channel('cambios-stock')
             .on('postgres_changes', { event: '*', schema: 'public', table: 'productos' }, () => {
@@ -355,7 +353,7 @@
             })
             .subscribe();
 
-        // Ejecutar carga inicial
+        // Carga inicial al abrir la página
         actualizarStockDesdeBaseDeDatos();
     </script>
 </body>
