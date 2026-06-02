@@ -121,7 +121,7 @@
     </style>
 </head>
 <body>
-<h1>Hola</h1>
+
     <header>
         <h1>🍬 Golosina al paso 🍭</h1>
         <p>Escaneá, elegí y disfrutá con los ojos</p>
@@ -257,13 +257,12 @@
     </footer>
 
     <script>
-        // CONFIGURACIÓN ÚNICA DE SUPABASE
+        // CONFIGURACIÓN ÚNICA DE SUPABASE - Variable renombrada a miSupabase
         const SUPABASE_URL = "https://smxhaczyyqgbaqqlcujf.supabase.co";
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNteGhhY3p5eXFnYmFxcWxjdWpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTAyMjYsImV4cCI6MjA5NTkyNjIyNn0.UO8-8JGZ5Tas18GcDZo9o1JJFa61VOuDdmNnYL0c36w";
 
-        const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const miSupabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Diccionario de vinculación Nombre de Base de Datos -> ID del HTML
         const mapaIdProductos = {
             "Alfajor Fulbito": "prod-alfajor-fulbito",
             "Turrón Fulbito": "prod-turron-fulbito",
@@ -284,9 +283,8 @@
             "Budín de Limón": "prod-budin-limon"
         };
 
-        // FUNCIÓN PARA ACTUALIZAR PRECIOS Y STOCK DESDE LA BASE DE DATOS
         async function actualizarStockDesdeBaseDeDatos() {
-            const { data: productos, error } = await supabase
+            const { data: productos, error } = await miSupabase
                 .from('productos')
                 .select('nombre, precio, stock');
 
@@ -300,10 +298,7 @@
                 if (idElemento) {
                     const tarjeta = document.getElementById(idElemento);
                     if (tarjeta) {
-                        // Actualiza el precio
                         tarjeta.querySelector('.producto-precio').innerText = `$${prod.precio}`;
-                        
-                        // Actualiza el stock
                         const contenedorStock = tarjeta.querySelector('.producto-stock');
                         if (prod.stock > 0) {
                             contenedorStock.innerHTML = `Stock: ${prod.stock} u.`;
@@ -317,7 +312,6 @@
             });
         }
 
-        // BUSCADOR ORIGINAL
         function filtrarProductos() {
             let input = document.getElementById('inputBuscar').value.toLowerCase();
             let secciones = document.getElementsByClassName('categoria-seccion');
@@ -345,15 +339,13 @@
             }
         }
 
-        // ESCUCHAR EN TIEMPO REAL CAMBIOS EN LA BASE DE DATOS
-        supabase
+        miSupabase
             .channel('cambios-stock')
             .on('postgres_changes', { event: '*', schema: 'public', table: 'productos' }, () => {
                 actualizarStockDesdeBaseDeDatos();
             })
             .subscribe();
 
-        // Carga inicial al abrir la página
         actualizarStockDesdeBaseDeDatos();
     </script>
 </body>
