@@ -221,7 +221,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN BUDINES (Solucionado con Emojis temporales para evitar errores 404) -->
+    <!-- SECCIÓN BUDINES -->
     <section class="categoria-seccion">
         <h2 class="categoria-titulo">Budines</h2>
         <div class="grid-productos">
@@ -300,10 +300,10 @@
                 if (idElemento) {
                     const tarjeta = document.getElementById(idElemento);
                     if (tarjeta) {
-                        // Actualiza el precio dinámicamente
+                        // Actualiza el precio
                         tarjeta.querySelector('.producto-precio').innerText = `$${prod.precio}`;
                         
-                        // Actualiza el stock dinámicamente
+                        // Actualiza el stock
                         const contenedorStock = tarjeta.querySelector('.producto-stock');
                         if (prod.stock > 0) {
                             contenedorStock.innerHTML = `Stock: ${prod.stock} u.`;
