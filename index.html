@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiosco Digital - Golosinas con Fotos</title>
+    <!-- Cargamos la librería oficial de Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -55,7 +57,7 @@
         }
         .grid-productos {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Aumentado para acomodar imágenes */
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 15px;
             margin-bottom: 25px;
         }
@@ -67,32 +69,29 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Alineado al principio para la imagen */
+            justify-content: flex-start;
             border: 1px solid #edf2f7;
             transition: transform 0.2s, border-color 0.2s;
-            cursor: pointer; /* Toque interactivo */
+            cursor: pointer;
         }
         .producto-card:hover {
             transform: translateY(-5px);
             border-color: #764ba2;
         }
-        
-        /* --- NUEVO ESTILO PARA IMÁGENES --- */
         .producto-imagen {
             width: 100%;
-            height: 120px; /* Altura estándar para todas */
-            object-fit: contain; /* Ajusta la imagen sin recortar */
+            height: 120px;
+            object-fit: contain;
             border-radius: 8px;
             margin-bottom: 12px;
-            background-color: #f1f5f9; /* Fondo suave para cuando no hay imagen */
+            background-color: #f1f5f9;
         }
-        
         .producto-nombre {
             font-size: 15px;
             font-weight: 600;
             color: #2d3748;
             margin-bottom: 8px;
-            min-height: 40px; /* Asegura alineación si el nombre es corto */
+            min-height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -101,7 +100,17 @@
             font-size: 16px;
             font-weight: bold;
             color: #2b6cb0;
-            margin-top: auto; /* Empuja el precio al final */
+            margin-top: auto;
+        }
+        /* Estilo para el stock que agregamos */
+        .producto-stock {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 5px;
+        }
+        .sin-stock {
+            color: #e53e3e;
+            font-weight: bold;
         }
         footer {
             text-align: center;
@@ -125,55 +134,66 @@
     <section class="categoria-seccion">
         <h2 class="categoria-titulo">Chocolates</h2>
         <div class="grid-productos">
-            <div class="producto-card">
+            <!-- Agregamos un id único a cada tarjeta para enlazarlo con Supabase -->
+            <div class="producto-card" id="prod-alfajor-fulbito">
                 <img src="imagenes/fulbito.webp" alt="Alfajor Fulbito" class="producto-imagen">
                 <div class="producto-nombre">Alfajor Fulbito</div>
                 <div class="producto-precio">$400</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-turron-fulbito">
                 <img src="imagenes/turron.jpg" alt="Turrón Fulbito" class="producto-imagen">
                 <div class="producto-nombre">Turrón Fulbito</div>
                 <div class="producto-precio">$400</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-cubanito-smack">
                 <img src="imagenes/cubanito.webp" alt="Cubanito Smack Mousse" class="producto-imagen">
                 <div class="producto-nombre">Cubanito Smack Mousse</div>
                 <div class="producto-precio">$700</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-oblea-smack">
                 <img src="imagenes/oblea.webp" alt="Oblea Smack" class="producto-imagen">
                 <div class="producto-nombre">Oblea Smack</div>
                 <div class="producto-precio">$800</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-oblea-arcor">
                 <img src="imagenes/arcor.webp" alt="Oblea Arcor" class="producto-imagen">
                 <div class="producto-nombre">Oblea Arcor</div>
                 <div class="producto-precio">$900</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-torta-smack">
                 <img src="imagenes/torta.webp" alt="Torta Smack" class="producto-imagen">
                 <div class="producto-nombre">Torta Smack</div>
                 <div class="producto-precio">$1100</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-barra-smack">
                 <img src="imagenes/barra.jpeg" alt="Barra Smack" class="producto-imagen">
                 <div class="producto-nombre">Barra Smack</div>
                 <div class="producto-precio">$800</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-cerealmix-frutilla">
                 <img src="imagenes/cerealfrutilla.webp" alt="Barra Cereal Mix Yogurt & Frutilla" class="producto-imagen">
                 <div class="producto-nombre">Barra Cereal Mix Yogurt & Frutilla</div>
                 <div class="producto-precio">$1300</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-cerealmix-choco">
                 <img src="imagenes/cerealchoco.jpg" alt="Barra Cereal Mix Frutilla & Chocolate" class="producto-imagen">
                 <div class="producto-nombre">Barra Cereal Mix Frutilla & Chocolate</div>
                 <div class="producto-precio">$1300</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-muecas-cacao">
                 <img src="imagenes/muecas.webp" alt="Barra Muecas Cacao y Avena" class="producto-imagen">
                 <div class="producto-nombre">Barra Muecas Cacao y Avena</div>
                 <div class="producto-precio">$1800</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
         </div>
     </section>
@@ -182,20 +202,23 @@
     <section class="categoria-seccion">
         <h2 class="categoria-titulo">Caramelos y Chicles</h2>
         <div class="grid-productos">
-            <div class="producto-card">
+            <div class="producto-card" id="prod-flynnpaff">
                 <img src="imagenes/flynnpaff.png" alt="Caramelo Flynn Paff" class="producto-imagen">
                 <div class="producto-nombre">Caramelo Flynn Paff XL</div>
                 <div class="producto-precio">$800</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-beldent-menta">
                 <img src="imagenes/chiclementa.webp" alt="Beldent Infinit Menta" class="producto-imagen">
                 <div class="producto-nombre">Beldent Infinit Menta</div>
                 <div class="producto-precio">$1200</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-beldent-spearmint">
                 <img src="imagenes/chiclespearmint.webp" alt="Beldent Infinit Spearmint" class="producto-imagen">
                 <div class="producto-nombre">Beldent Infinit Spearmint</div>
                 <div class="producto-precio">$1200</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
         </div>
     </section>
@@ -204,25 +227,29 @@
     <section class="categoria-seccion">
         <h2 class="categoria-titulo">Budines</h2>
         <div class="grid-productos">
-            <div class="producto-card">
+            <div class="producto-card" id="prod-budin-banana">
                 <img src="placeholder_budin_banana.png" alt="Budín de Banana" class="producto-imagen">
                 <div class="producto-nombre">Budín de Banana</div>
-                <div class="producto-precio">$3.500</div>
+                <div class="producto-precio">$3500</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-budin-chispitas">
                 <img src="placeholder_budin_chispitas.png" alt="Budín de Chispitas" class="producto-imagen">
                 <div class="producto-nombre">Budín de Chispitas</div>
-                <div class="producto-precio">$3.500</div>
+                <div class="producto-precio">$3500</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-budin-chocolate">
                 <img src="placeholder_budin_chocolate.png" alt="Budín de Chocolate" class="producto-imagen">
                 <div class="producto-nombre">Budín de Chocolate</div>
-                <div class="producto-precio">$3.500</div>
+                <div class="producto-precio">$3500</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
-            <div class="producto-card">
+            <div class="producto-card" id="prod-budin-limon">
                 <img src="placeholder_budin_limon.png" alt="Budín de Limón" class="producto-imagen">
                 <div class="producto-nombre">Budín de Limón</div>
-                <div class="producto-precio">$3.500</div>
+                <div class="producto-precio">$3500</div>
+                <div class="producto-stock">Cargando...</div>
             </div>
         </div>
     </section>
@@ -232,6 +259,67 @@
     </footer>
 
     <script>
+        // CONFIGURACIÓN DE SUPABASE
+        const SUPABASE_URL = "https://smxhaczyyqgbaqqlcujf.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNteGhhY3p5eXFnYmFxcWxjdWpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTAyMjYsImV4cCI6MjA5NTkyNjIyNn0.UO8-8JGZ5Tas18GcDZo9o1JJFa61VOuDdmNnYL0c36w";
+
+        const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Diccionario para vincular los nombres exactos de tu base de datos con los IDs del HTML
+        const mapaIdProductos = {
+            "Alfajor Fulbito": "prod-alfajor-fulbito",
+            "Turrón Fulbito": "prod-turron-fulbito",
+            "Cubanito Smack Mousse": "prod-cubanito-smack",
+            "Oblea Smack": "prod-oblea-smack",
+            "Oblea Arcor": "prod-oblea-arcor",
+            "Torta Smack": "prod-torta-smack",
+            "Barra Smack": "prod-barra-smack",
+            "Barra Cereal Mix Yogurt & Frutilla": "prod-cerealmix-frutilla",
+            "Barra Cereal Mix Frutilla & Chocolate": "prod-cerealmix-choco",
+            "Barra Muecas Cacao y Avena": "prod-muecas-cacao",
+            "Caramelo Flynn Paff XL": "prod-flynnpaff",
+            "Beldent Infinit Menta": "prod-beldent-menta",
+            "Beldent Infinit Spearmint": "prod-beldent-spearmint",
+            "Budín de Banana": "prod-budin-banana",
+            "Budín de Chispitas": "prod-budin-chispitas",
+            "Budín de Chocolate": "prod-budin-chocolate",
+            "Budín de Limón": "prod-budin-limon"
+        };
+
+        // FUNCIÓN PARA ACTUALIZAR PRECIOS Y STOCK DESDE LA BASE DE DATOS
+        async function actualizarStockDesdeBaseDeDatos() {
+            const { data: productos, error } = await supabase
+                .from('productos')
+                .select('nombre, precio, stock');
+
+            if (error) {
+                console.error("Error al traer datos de Supabase:", error);
+                return;
+            }
+
+            productos.forEach(prod => {
+                const idElemento = mapaIdProductos[prod.nombre];
+                if (idElemento) {
+                    const tarjeta = document.getElementById(idElemento);
+                    if (tarjeta) {
+                        // Actualiza el precio dinámicamente
+                        tarjeta.querySelector('.producto-precio').innerText = `$${prod.precio}`;
+                        
+                        // Actualiza el stock dinámicamente
+                        const contenedorStock = tarjeta.querySelector('.producto-stock');
+                        if (prod.stock > 0) {
+                            contenedorStock.innerHTML = `Stock: ${prod.stock} u.`;
+                            contenedorStock.classList.remove('sin-stock');
+                        } else {
+                            contenedorStock.innerHTML = `Agotado`;
+                            contenedorStock.classList.add('sin-stock');
+                        }
+                    }
+                }
+            });
+        }
+
+        // BUSCADOR ORIGINAL ORIGINAL
         function filtrarProductos() {
             let input = document.getElementById('inputBuscar').value.toLowerCase();
             let secciones = document.getElementsByClassName('categoria-seccion');
@@ -241,7 +329,6 @@
                 let tieneProductosVisibles = false;
                 
                 for (let j = 0; j < cards.length; j++) {
-                    // El buscador sigue funcionando igual, buscando en el nombre
                     let nombre = cards[j].getElementsByClassName('producto-nombre')[0].innerText.toLowerCase();
                     
                     if (nombre.includes(input)) {
@@ -253,12 +340,23 @@
                 }
                 
                 if (tieneProductosVisibles) {
-                    secciones[i].style.display = ""; // Corregido el error de sintaxis previo
+                    secciones[i].style.display = "";
                 } else {
                     secciones[i].style.display = "none";
                 }
             }
         }
+
+        // ESCUCHAR EN TIEMPO REAL
+        supabase
+            .channel('cambios-stock')
+            .on('postgres_changes', { event: '*', schema: 'public', table: 'productos' }, () => {
+                actualizarStockDesdeBaseDeDatos();
+            })
+            .subscribe();
+
+        // Ejecutar carga inicial
+        actualizarStockDesdeBaseDeDatos();
     </script>
 </body>
 </html>
