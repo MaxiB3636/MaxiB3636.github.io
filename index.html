@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiosco Digital - Golosinas con Fotos</title>
-    <script src="https://unpkg.com/@supabase/supabase-js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -128,6 +127,7 @@
 
     <input type="text" id="inputBuscar" class="buscador" placeholder="Buscar golosina..." onkeyup="filtrarProductos()">
 
+    <!-- SECCIÓN CHOCOLATES -->
     <section class="categoria-seccion">
         <h2 class="categoria-titulo">Chocolates</h2>
         <div class="grid-productos">
@@ -194,6 +194,7 @@
         </div>
     </section>
 
+    <!-- SECCIÓN GOMITAS Y CARAMELOS -->
     <section class="categoria-seccion">
         <h2 class="categoria-titulo">Caramelos y Chicles</h2>
         <div class="grid-productos">
@@ -218,6 +219,7 @@
         </div>
     </section>
 
+    <!-- SECCIÓN BUDINES -->
     <section class="categoria-seccion">
         <h2 class="categoria-titulo">Budines</h2>
         <div class="grid-productos">
@@ -252,47 +254,44 @@
         <p>© 2026 - MaxiB3636 Golosinas</p>
     </footer>
 
+    <!-- CARGA DE LIBRERÍA DE SUPABASE DE MANERA COMPATIBLE CON GITHUB PAGES -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2.42.0/dist/umd/supabase.js"></script>
+
     <script>
-        // Mantenemos el código adentro del onload para asegurar orden de carga
-        window.onload = function() {
-            const SUPABASE_URL = "https://smxhaczyyqgbaqqlcujf.supabase.co";
-            const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNteGhhY3p5eXFnYmFxcWxjdWpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTAyMjYsImV4cCI6MjA5NTkyNjIyNn0.UO8-8JGZ5Tas18GcDZo9o1JJFa61VOuDdmNnYL0c36w";
+        // Inicializamos los datos directo sin trabas lógicas artificiales
+        const SUPABASE_URL = "https://smxhaczyyqgbaqqlcujf.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNteGhhY3p5eXFnYmFxcWxjdWpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTAyMjYsImV4cCI6MjA5NTkyNjIyNn0.UO8-8JGZ5Tas18GcDZo9o1JJFa61VOuDdmNnYL0c36w";
 
-            // Validamos que exista la librería antes de inicializar
-            if (typeof Supabase === 'undefined') {
-                console.error("Error: La librería de Supabase no se descargó correctamente.");
-                return;
-            }
+        const miSupabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-            const miSupabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const mapaIdProductos = {
+            "Alfajor Fulbito": "prod-alfajor-fulbito",
+            "Turrón Fulbito": "prod-turron-fulbito",
+            "Cubanito Smack Mousse": "prod-cubanito-smack",
+            "Oblea Smack": "prod-oblea-smack",
+            "Oblea Arcor": "prod-oblea-arcor",
+            "Torta Smack": "prod-torta-smack",
+            "Barra Smack": "prod-barra-smack",
+            "Barra Cereal Mix Yogurt & Frutilla": "prod-cerealmix-frutilla",
+            "Barra Cereal Mix Frutilla & Chocolate": "prod-cerealmix-choco",
+            "Barra Muecas Cacao y Avena": "prod-muecas-cacao",
+            "Caramelo Flynn Paff XL": "prod-flynnpaff",
+            "Beldent Infinit Menta": "prod-beldent-menta",
+            "Beldent Infinit Spearmint": "prod-beldent-spearmint",
+            "Budín de Banana": "prod-budin-banana",
+            "Budín de Chispitas": "prod-budin-chispitas",
+            "Budín de Chocolate": "prod-budin-chocolate",
+            "Budín de Limón": "prod-budin-limon"
+        };
 
-            const mapaIdProductos = {
-                "Alfajor Fulbito": "prod-alfajor-fulbito",
-                "Turrón Fulbito": "prod-turron-fulbito",
-                "Cubanito Smack Mousse": "prod-cubanito-smack",
-                "Oblea Smack": "prod-oblea-smack",
-                "Oblea Arcor": "prod-oblea-arcor",
-                "Torta Smack": "prod-torta-smack",
-                "Barra Smack": "prod-barra-smack",
-                "Barra Cereal Mix Yogurt & Frutilla": "prod-cerealmix-frutilla",
-                "Barra Cereal Mix Frutilla & Chocolate": "prod-cerealmix-choco",
-                "Barra Muecas Cacao y Avena": "prod-muecas-cacao",
-                "Caramelo Flynn Paff XL": "prod-flynnpaff",
-                "Beldent Infinit Menta": "prod-beldent-menta",
-                "Beldent Infinit Spearmint": "prod-beldent-spearmint",
-                "Budín de Banana": "prod-budin-banana",
-                "Budín de Chispitas": "prod-budin-chispitas",
-                "Budín de Chocolate": "prod-budin-chocolate",
-                "Budín de Limón": "prod-budin-limon"
-            };
-
-            async function actualizarStockDesdeBaseDeDatos() {
+        async function actualizarStockDesdeBaseDeDatos() {
+            try {
                 const { data: productos, error } = await miSupabase
                     .from('productos')
                     .select('nombre, precio, stock');
 
                 if (error) {
-                    console.error("Error al traer datos de Supabase:", error);
+                    console.error("Error de consulta en las tablas:", error);
                     return;
                 }
 
@@ -313,21 +312,23 @@
                         }
                     }
                 });
+            } catch (err) {
+                console.error("Excepción al conectar con Supabase:", err);
             }
+        }
 
-            // Escuchar cambios en la base en tiempo real
-            miSupabase
-                .channel('cambios-stock')
-                .on('postgres_changes', { event: '*', schema: 'public', table: 'productos' }, () => {
-                    actualizarStockDesdeBaseDeDatos();
-                })
-                .subscribe();
+        // Suscribirse a cambios en tiempo real
+        miSupabase
+            .channel('cambios-stock')
+            .on('postgres_changes', { event: '*', schema: 'public', table: 'productos' }, () => {
+                actualizarStockDesdeBaseDeDatos();
+            })
+            .subscribe();
 
-            // Lanzar primera carga de datos
-            actualizarStockDesdeBaseDeDatos();
-        };
+        // Ejecutar carga inicial de precios y stock
+        actualizarStockDesdeBaseDeDatos();
 
-        // El buscador se queda afuera para que responda instantáneamente al tipear
+        // Buscador reactivo por teclado
         function filtrarProductos() {
             let input = document.getElementById('inputBuscar').value.toLowerCase();
             let secciones = document.getElementsByClassName('categoria-seccion');
