@@ -1,0 +1,415 @@
+[
+  {
+    "id": "1",
+    "nombre": "COLA 3LT",
+    "imagen": "assets/images/cola3lt.png",
+    "precio": 9999.96,
+    "categoria": "gaseosas 3lt"
+  },
+  {
+    "id": "2",
+    "nombre": "LIMA LIMÓN 3LT",
+    "imagen": "assets/images/limalimon3lt.png",
+    "precio": 9999.96,
+    "categoria": "gaseosas 3lt"
+  },
+  {
+    "id": "3",
+    "nombre": "POMELO BLANCO 3LT",
+    "imagen": "assets/images/pomelo3lt.png",
+    "precio": 9999.96,
+    "categoria": "gaseosas 3lt"
+  },
+  {
+    "id": "4",
+    "nombre": "NARANJA 3LT",
+    "imagen": "assets/images/naranja3lt.png",
+    "precio": 9999.96,
+    "categoria": "gaseosas 3lt"
+  },
+  {
+    "id": "5",
+    "nombre": "GUARANÁ 3LT",
+    "imagen": "assets/images/guarana3lt.png",
+    "precio": 9999.96,
+    "categoria": "gaseosas 3lt"
+  },
+  {
+    "id": "6",
+    "nombre": "LIMÓN 3LT",
+    "imagen": "assets/images/limon3lt.png",
+    "precio": 9999.96,
+    "categoria": "gaseosas 3lt"
+  },
+  {
+    "id": "7",
+    "nombre": "MANZANA 3LT",
+    "imagen": "assets/images/manzana3lt.png",
+    "precio": 9999.96,
+    "categoria": "gaseosas 3lt"
+  },
+  {
+    "id": "8",
+    "nombre": "CITRUS 3LT",
+    "imagen": "assets/images/citrus3lt.png",
+    "precio": 9999.96,
+    "categoria": "gaseosas 3lt"
+  },
+  {
+    "id": "9",
+    "nombre": "GRANADINA 3LT",
+    "imagen": "assets/images/granadina3lt.png",
+    "precio": 9999.96,
+    "categoria": "gaseosas 3lt"
+  },
+  {
+    "id": "10",
+    "nombre": "COLA 600ML",
+    "imagen": "assets/images/cola600ml.png",
+    "precio": 4650.00,
+    "categoria": "gaseosas 600ml"
+  },
+  {
+    "id": "11",
+    "nombre": "LIMA LIMÓN 600ML",
+    "imagen": "assets/images/limalimon600ml.png",
+    "precio": 4650.00,
+    "categoria": "gaseosas 600ml"
+  },
+  {
+    "id": "12",
+    "nombre": "POMELO BLANCO 600ML",
+    "imagen": "assets/images/pomeloblanco600ml.png",
+    "precio": 4650.00,
+    "categoria": "gaseosas 600ml"
+  },
+  {
+    "id": "13",
+    "nombre": "NARANJA 600ML",
+    "imagen": "assets/images/naranja600ml.png",
+    "precio": 4650.00,
+    "categoria": "gaseosas 600ml"
+  },
+  {
+    "id": "14",
+    "nombre": "COLA 2,25LT",
+    "imagen": "assets/images/cola2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt"
+  },
+  {
+    "id": "15",
+    "nombre": "LIMA LIMÓN 2,25LT",
+    "imagen": "assets/images/limalimon2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt"
+  },
+  {
+    "id": "16",
+    "nombre": "POMELO BLANCO 2,25LT",
+    "imagen": "assets/images/pomeloblanco2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt"
+  },
+  {
+    "id": "17",
+    "nombre": "NARANJA 2,25LT",
+    "imagen": "assets/images/naranja2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt"
+  },
+  {
+    "id": "18",
+    "nombre": "UVA 2,25LT",
+    "imagen": "assets/images/uva2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt"
+  },
+  {
+    "id": "19",
+    "nombre": "GRANADINA 2,25LT",
+    "imagen": "assets/images/granadina2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt"
+  },
+  {
+    "id": "20",
+    "nombre": "GUARANÁ 2,25LT",
+    "imagen": "assets/images/guarana2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt"
+  },
+  {
+    "id": "21",
+    "nombre": "POMELO AMARILLO 2,25LT",
+    "imagen": "assets/images/pomeloamarillo2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt"
+  },
+  {
+    "id": "22",
+    "nombre": "POMELO ROSADO 2,25LT",
+    "imagen": "assets/images/pomelorosado2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt"
+  },
+  {
+    "id": "23",
+    "nombre": "MANZANA 2,25LT",
+    "imagen": "assets/images/manzana2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt"
+  },
+  {
+    "id": "24",
+    "nombre": "AGUA TÓNICA 2,25LT",
+    "imagen": "assets/images/aguatonica2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt"
+  },
+  {
+    "id": "25",
+    "nombre": "CITRUS 2,25LT",
+    "imagen": "assets/images/citrus2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt sin azúcar"
+  },
+  {
+    "id": "26",
+    "nombre": "NARANJA-DURAZN 2,25LT",
+    "imagen": "assets/images/naranjadurazno2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt sin azúcar"
+  },
+  {
+    "id": "27",
+    "nombre": "LIMA LIMÓN 2,25LT",
+    "imagen": "assets/images/limalimons2,25lt.png",
+    "precio": 9300.00,
+    "categoria": "gaseosas 2,25lt sin azúcar"
+  },
+  {
+    "id": "28",
+    "nombre": "NARANJA",
+    "imagen": "assets/images/placernaranja.png",
+    "precio": 3345.00,
+    "categoria": "agua saborizada placer 500ml"
+  },
+  {
+    "id": "29",
+    "nombre": "POMELO",
+    "imagen": "assets/images/placerpomelo.png",
+    "precio": 3345.00,
+    "categoria": "agua saborizada placer 500ml"
+  },
+  {
+    "id": "30",
+    "nombre": "MANZANA",
+    "imagen": "assets/images/placermanzana.png",
+    "precio": 3345.00,
+    "categoria": "agua saborizada placer 500ml"
+  },
+  {
+    "id": "31",
+    "nombre": "MULTIFRUTA",
+    "imagen": "assets/images/placermultifruta.png",
+    "precio": 3345.00,
+    "categoria": "agua saborizada placer 500ml"
+  },
+  {
+    "id": "32",
+    "nombre": "PERA",
+    "imagen": "assets/images/placerpera.png",
+    "precio": 3345.00,
+    "categoria": "agua saborizada placer 500ml"
+  },
+  {
+    "id": "33",
+    "nombre": "ANANÁ",
+    "imagen": "assets/images/placeranana.png",
+    "precio": 3345.00,
+    "categoria": "agua saborizada placer 500ml"
+  },
+  {
+    "id": "34",
+    "nombre": "MANZANA 200ML",
+    "imagen": "assets/images/pindamanzana.png",
+    "precio": 2916.66,
+    "categoria": "jugo de frutas pindapoy 200ml"
+  },
+  {
+    "id": "35",
+    "nombre": "MULTIFRUTA 200ML",
+    "imagen": "assets/images/pindamultifruta.png",
+    "precio": 2916.66,
+    "categoria": "jugo de frutas pindapoy 200ml"
+  },
+  {
+    "id": "36",
+    "nombre": "NARANJA 200ML",
+    "imagen": "assets/images/pindanaranja.png",
+    "precio": 2916.66,
+    "categoria": "jugo de frutas pindapoy 200ml"
+  },
+  {
+    "id": "37",
+    "nombre": "DURAZNO 200ML",
+    "imagen": "assets/images/pindadurazno.png",
+    "precio": 2916.66,
+    "categoria": "jugo de frutas pindapoy 200ml"
+  },
+  {
+    "id": "38",
+    "nombre": "MANZANA 1LT",
+    "imagen": "assets/images/pindamanzana1lt.png",
+    "precio": 10200.00,
+    "categoria": "jugo de frutas pindapoy 1lt"
+  },
+  {
+    "id": "39",
+    "nombre": "MULTIFRUTA 1LT",
+    "imagen": "assets/images/pindamultifruta1lt.png",
+    "precio": 10200.00,
+    "categoria": "jugo de frutas pindapoy 1lt"
+  },
+  {
+    "id": "40",
+    "nombre": "NARANJA 1LT",
+    "imagen": "assets/images/pindanaranja1lt.png",
+    "precio": 10200.00,
+    "categoria": "jugo de frutas pindapoy 1lt"
+  },
+  {
+    "id": "41",
+    "nombre": "DURAZNO 1LT",
+    "imagen": "assets/images/pindadurazno1lt.png",
+    "precio": 10200.00,
+    "categoria": "jugo de frutas pindapoy 1lt"
+  },
+  {
+    "id": "42",
+    "nombre": "AGUA SIN GAS 2LT",
+    "imagen": "assets/images/aguasingas2lt.png",
+    "precio": 4699.98,
+    "categoria": "agua mineral"
+  },
+  {
+    "id": "43",
+    "nombre": "AGUA SIN GAS 6LT",
+    "imagen": "assets/images/aguasingas6lt.png",
+    "precio": 13200.00,
+    "categoria": "agua mineral"
+  },
+  {
+    "id": "44",
+    "nombre": "SODA MANAOS 2LT",
+    "imagen": "assets/images/sodamanaos2lt.png",
+    "precio": 8299.98,
+    "categoria": "sodas"
+  },
+  {
+    "id": "45",
+    "nombre": "CLÁSICO",
+    "imagen": "assets/images/clasico.png",
+    "precio": 22260.00,
+    "categoria": "vinos"
+  },
+  {
+    "id": "46",
+    "nombre": "PATERO",
+    "imagen": "assets/images/patero.png",
+    "precio": 23750.00,
+    "categoria": "vinos"
+  },
+  {
+    "id": "47",
+    "nombre": "CARLÓN",
+    "imagen": "assets/images/carlon.png",
+    "precio": 23210.00,
+    "categoria": "vinos"
+  },
+  {
+    "id": "48",
+    "nombre": "TARDÍO",
+    "imagen": "assets/images/tardio.png",
+    "precio": 23210.00,
+    "categoria": "vinos"
+  },
+  {
+    "id": "49",
+    "nombre": "VIÑAS DE BALBO",
+    "imagen": "assets/images/balbo.png",
+    "precio": 24000.00,
+    "categoria": "vinos"
+  },
+  {
+    "id": "50",
+    "nombre": "NAMPE",
+    "imagen": "assets/images/nampe.png",
+    "precio": 22200.00,
+    "categoria": "vinos"
+  },
+  {
+    "id": "51",
+    "nombre": "GENTILEZA TINTO",
+    "imagen": "assets/images/gentileza.png",
+    "precio": 13500.00,
+    "categoria": "vinos"
+  },
+  {
+    "id": "52",
+    "nombre": "GENTILEZA PATERO",
+    "imagen": "assets/images/gentilezapatero.png",
+    "precio": 15000.00,
+    "categoria": "vinos"
+  },
+  {
+    "id": "53",
+    "nombre": "PETACAS KROWN",
+    "imagen": "assets/images/petacaskrown.png",
+    "precio": 1074.00,
+    "categoria": "petacas"
+  },
+  {
+    "id": "54",
+    "nombre": "PETACAS VLAK",
+    "imagen": "assets/images/petacasvlak.png",
+    "precio": 950.00,
+    "categoria": "petacas"
+  },
+  {
+    "id": "55",
+    "nombre": "EL LEÑERITO NARANJA 5LT",
+    "imagen": "assets/images/leñeritonaranja.png",
+    "precio": 50700.00,
+    "categoria": "jugos"
+  },
+  {
+    "id": "56",
+    "nombre": "EL LEÑERITO ANANÁ 5LT",
+    "imagen": "assets/images/leñeritoanana.png",
+    "precio": 50700.00,
+    "categoria": "jugos"
+  },
+  {
+    "id": "57",
+    "nombre": "BIOFRUT NARANJA 1LT",
+    "imagen": "assets/images/biofrut.png",
+    "precio": 19596.00,
+    "categoria": "jugos"
+  },
+  {
+    "id": "58",
+    "nombre": "SIERRAS DE TANDIL 10LT",
+    "imagen": "assets/images/bidon10lt.png",
+    "precio": 16800.00,
+    "categoria": "agua mineral"
+  },
+  {
+    "id": "59",
+    "nombre": "LUPULADA 600ML",
+    "imagen": "assets/images/lupulada.png",
+    "precio": 39999.96,
+    "categoria": "cervezas"
+  }
+]
