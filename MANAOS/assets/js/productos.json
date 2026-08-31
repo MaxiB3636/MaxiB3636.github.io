@@ -406,9 +406,9 @@
     "id": "46",
     "nombre": "AGUA SIN GAS 6LT",
     "imagen": "assets/images/aguasingas6lt.png",
-    "precio": 13200.00,
-    "precioX10": 12672.00,
-    "precioPallet": 11880.00,
+    "precio": 2200.00,
+    "precioX10": 1900.00,
+    "precioPallet": 1700.00,
     "categoria": "agua mineral"
   },
   {
