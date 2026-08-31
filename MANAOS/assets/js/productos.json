@@ -424,9 +424,9 @@
     "id": "48",
     "nombre": "AGUA SIN GAS 600ML",
     "imagen": "assets/images/aguasingas600ml.png",
-    "precio": 4699.98,
-    "precioX10": 4511.98,
-    "precioPallet": 4229.98,
+    "precio": 3499.98,
+    "precioX10": 3000.00,
+    "precioPallet": 2499.96,
     "categoria": "agua mineral"
   },
   {
